@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package warehouse;
+
+service WarehouseService {
+    rpc addWH (CreateWarehouseRequest) returns (WarehouseResponse) {}
+    rpc addProductToWH (ProductWHRequest) returns (ProductWHResponse) {}
+    rpc deleteProductWH (DeleteProductWHRequest) returns (ProductWHResponse) {}
+    rpc updateWH (UpdateWarehouseRequest) returns (WarehouseResponse) {}
+    rpc updateStock (ProductWHRequest) returns (ProductWHResponse) {}
+    rpc getWH (WarehouseRequest) returns (WarehouseResponse) {}
+    rpc getAllWH (Empty) returns (AllWarehouseResponse) {}
+}
+
+message Empty {}
+
+message Error {
+    int32  code = 1;
+    string message = 2;
+}
+
+message Warehouse {
+    int32 id = 1;
+    string name = 2;
+    string location = 3;
+}
+
+message CreateWarehouseRequest {
+    string name = 1;
+    string location = 2;
+}
+
+message WarehouseResponse {
+    Warehouse warehouse = 1;
+    Error error = 2;
+}
+
+message ProductWHRequest {
+    int32 idProduct = 1;
+    int32 idWH = 2;
+    int32 stock = 3;
+}
+
+message ProductWHResponse {
+    bool success = 1;
+    Error error = 2;
+}
+
+message DeleteProductWHRequest {
+    int32 idProduct = 1;
+    int32 idWH = 2;
+}
+
+message UpdateWarehouseRequest {
+    int32 id = 1;
+    string name = 2;
+    string location = 3;
+}
+
+message WarehouseRequest {
+    int32 id = 1;
+}
+
+message AllWarehouseResponse {
+    repeated Warehouse warehouses = 1;
+    Error error = 2;
+}
