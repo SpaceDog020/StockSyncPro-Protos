@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package product;
+
+
+/*
+
+
+Microservicio 3: ProductService (Nestjs)
+Funciones: AddProduct, updateproduct, getProductById, getAllProducts, deleteProduct
+Estructura:  precios, descripción
+Repo: https://github.com/SpaceDog020/StockSyncPro-Product 
+*/
+
+
+service ProductService {
+    rpc AddProduct(AddProductRequest) returns (AddProductResponse) {}
+    rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {}
+    rpc GetProductById(getProductByIdRequest) returns (getProductByIdResponse) {}
+    rpc GetAllProducts(Empty) returns (GetAllProductsResponse) {}
+    rpc DeleteProductById(DeleteProductByIdRequest) returns (DeleteProductByIdResponse) {}
+
+}
+
+message Empty{}
+
+
+message Error{
+    int32  code = 1;
+    string message = 2;
+}
+
+message Product{
+    string name = 1;
+    string description = 2;
+    string price = 3;
+    string id = 4;
+}
+
+message AddProductRequest{
+    string  name = 1;
+    string description = 2;
+    string price = 3;
+}
+
+message AddProductResponse{
+    Product product = 1;
+    Error error = 2;
+}
+
+message UpdateProductRequest{
+    string name = 1;
+    string description = 2;
+    string price = 3;
+}
+
+message UpdateProductResponse{
+    Product product = 1;
+    Error error = 2;
+}
+
+message getProductByIdRequest {
+    string id = 1;
+}
+
+message getProductByIdResponse{
+    Product product = 1;
+    Error error = 2;
+}
+
+message GetAllProductsResponse{
+    repeated Product products = 1;
+    Error error = 2;
+}
+
+
+message DeleteProductByIdRequest{
+    string id = 1;
+}
+
+message DeleteProductByIdResponse{
+    bool isDeleted = 1;
+    Error error = 2;
+}
+
+
+
+
+
+

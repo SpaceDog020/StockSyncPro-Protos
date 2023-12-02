@@ -1,13 +1,11 @@
 syntax = "proto3";
 
-package users;
+package user;
 
-service UsersService {
+service UserService {
     rpc Register(CredentialsRequest) returns (RegisterUserResponse) {}
     rpc Login(CredentialsRequest) returns (LoginUserResponse) {} 
 }
-
-
 
 message Error{
     int32  code = 1;
