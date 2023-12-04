@@ -32,14 +32,14 @@ message Error{
 message Product{
     string name = 1;
     string description = 2;
-    string price = 3;
+    int32 price = 3;
     string id = 4;
 }
 
 message AddProductRequest{
     string  name = 1;
     string description = 2;
-    string price = 3;
+    int32 price = 3;
 }
 
 message AddProductResponse{
@@ -50,7 +50,7 @@ message AddProductResponse{
 message UpdateProductRequest{
     string name = 1;
     string description = 2;
-    string price = 3;
+    int32 price = 3;
 }
 
 message UpdateProductResponse{
