@@ -51,6 +51,7 @@ message UpdateProductRequest{
     string name = 1;
     string description = 2;
     int32 price = 3;
+    string id = 4;
 }
 
 message UpdateProductResponse{
