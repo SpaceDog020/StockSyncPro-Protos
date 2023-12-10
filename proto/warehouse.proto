@@ -10,6 +10,7 @@ service WarehouseService {
     rpc updateStock (ProductWHRequest) returns (ProductWHResponse) {}
     rpc getWH (WarehouseRequest) returns (WarehouseResponse) {}
     rpc getAllWH (Empty) returns (AllWarehouseResponse) {}
+    rpc getAllProductWH (AllProductWHRequest) returns (AllProductWHResponse) {}
 }
 
 message Empty {}
@@ -22,6 +23,11 @@ message Warehouse {
     int32 id = 1;
     string name = 2;
     string location = 3;
+}
+
+message ProductWH {
+    int32 idProduct = 1;
+    int32 stock = 2;
 }
 
 message CreateWarehouseRequest {
@@ -42,6 +48,15 @@ message ProductWHRequest {
 
 message ProductWHResponse {
     bool success = 1;
+    Error error = 2;
+}
+
+message AllProductWHRequest {
+    int32 idWH = 1;
+}
+
+message AllProductWHResponse {
+    repeated ProductWH productWH = 1;
     Error error = 2;
 }
 
