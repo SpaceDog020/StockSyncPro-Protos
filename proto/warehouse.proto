@@ -56,7 +56,7 @@ message AllProductWHRequest {
 }
 
 message AllProductWHResponse {
-    repeated ProductWH productWH = 1;
+    repeated ProductWH products = 1;
     Error error = 2;
 }
 
