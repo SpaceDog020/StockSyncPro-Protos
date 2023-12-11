@@ -26,7 +26,7 @@ message Warehouse {
 }
 
 message ProductWH {
-    int32 idProduct = 1;
+    string idProduct = 1;
     int32 stock = 2;
 }
 
@@ -41,7 +41,7 @@ message WarehouseResponse {
 }
 
 message ProductWHRequest {
-    int32 idProduct = 1;
+    string idProduct = 1;
     int32 idWH = 2;
     int32 stock = 3;
 }
@@ -61,7 +61,7 @@ message AllProductWHResponse {
 }
 
 message DeleteProductWHRequest {
-    int32 idProduct = 1;
+    string idProduct = 1;
     int32 idWH = 2;
 }
 
