@@ -17,6 +17,7 @@ service ProductService {
     rpc AddProduct(AddProductRequest) returns (AddProductResponse) {}
     rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {}
     rpc GetProductById(getProductByIdRequest) returns (getProductByIdResponse) {}
+    rpc GetProductsByIds(getProductsByIdsRequest) returns (GetAllProductsResponse) {}
     rpc GetAllProducts(Empty) returns (GetAllProductsResponse) {}
     rpc DeleteProductById(DeleteProductByIdRequest) returns (DeleteProductByIdResponse) {}
 
@@ -73,6 +74,9 @@ message GetAllProductsResponse{
     Error error = 2;
 }
 
+message getProductsByIdsRequest{
+    repeated string ids = 1;
+}
 
 message DeleteProductByIdRequest{
     string id = 1;
