@@ -17,7 +17,7 @@ message CredentialsRequest{
 }
 
 message RegisterUserResponse{
-    bool succcess = 1;
+    bool success = 1;
     Error error = 2;
 }
 
